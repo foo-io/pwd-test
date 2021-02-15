@@ -60,8 +60,6 @@ export default {
     }
   },
   mounted() {
-    this.todos = JSON.parse(localStorage.getItem('todos'))
-
     // if todos empty on localstorage we add default todos-list
     if (localStorage.getItem('todos') === null) {
       const defaultTodos = [
@@ -76,6 +74,9 @@ export default {
       ]
       localStorage.setItem('todos', JSON.stringify(defaultTodos))
     }
+
+    // get todos
+    this.todos = JSON.parse(localStorage.getItem('todos'))
   },
   methods: {
     addTodo () {
